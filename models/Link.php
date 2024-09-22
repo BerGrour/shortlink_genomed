@@ -1,6 +1,7 @@
 <?php
 
 namespace app\models;
+
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\db\Expression;
@@ -10,6 +11,7 @@ use yii\db\Expression;
  * 
  * @property int $id
  * @property string $original_url
+ * @property string $token
  * @property string $short_url
  * @property int $clicks
  * @property int $created_at
@@ -50,7 +52,7 @@ class Link extends ActiveRecord
         return [
             [['original_url'], 'required'],
             [['original_url'], 'safe'],
-            [['short_url'], 'string', 'max' => 255],
+            [['token', 'short_url'], 'string', 'max' => 255],
             [['clicks', 'created_at', 'updated_at'], 'integer']
         ];
     }
@@ -63,6 +65,7 @@ class Link extends ActiveRecord
         return [
             'id' => 'ID',
             'original_url' => 'Оригинальная ссылка',
+            'token' => 'Токен',
             'short_url' => 'Короткая ссылка',
             'clicks' => 'Количество переходов',
             'created_at' => 'Создано',
