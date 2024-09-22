@@ -52,6 +52,8 @@ $config = [
         */
     ],
     'params' => $params,
+    'name' => 'Сервис коротких ссылок',
+    'language' => 'ru',
 ];
 
 if (YII_ENV_DEV) {
