@@ -33,4 +33,4 @@ tests/_support/_generated
 /.vagrant
 
 # ignore files qrcode
-/web/qrcodes
+# /web/qrcodes/
