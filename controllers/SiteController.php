@@ -2,8 +2,6 @@
 
 namespace app\controllers;
 
-use Yii;
-use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\Link;
@@ -16,17 +14,6 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::class,
-                'only' => ['logout'],
-                'rules' => [
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [
@@ -59,12 +46,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $model = new Link();
-
-        if ($model->load(Yii::$app->request->post())) {
-            
-        }
-
-        return $this->render('index', ['model' => $model]);
+        return $this->render('index', ['model' => new Link()]);
     }
 }
